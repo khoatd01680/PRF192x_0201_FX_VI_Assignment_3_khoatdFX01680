@@ -112,17 +112,18 @@
           $("#mark_table").append(markRow);
           $(".inputInfo").val("");
         });
-        console.log(markArr);
-        // $("#btn_avrg").on("click", function (calAvrg) {
-        //   for (var i = 0; i <= markArr.length; i++) {
-        //     markArr[i].markAverage[i] =
-        //       (markArr[i].markMath[i] +
-        //         markArr[i].markPhysic[i] +
-        //         markArr[i].markChemistry[i]) /
-        //       3;
-        //     markArr[i].markAverage[i] = markAverage[i];
-        //   }
-        // });
+
+        $("#btn_avrg").on("click", function (calAvrg) {
+          for (var i = 0; i <= markArr.length; i++) {
+            markArr[i].markAverage =
+              (markArr[i].markMath +
+                markArr[i].markPhysic +
+                markArr[i].markChemistry) /
+              3;
+            markArr[i].markAverage = markAverage[i];
+            console.log(markAverage[i]);
+          }
+        });
       });
     </script>
   </body>
