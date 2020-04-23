@@ -74,6 +74,7 @@
         var markPhysic;
         var markChemistry;
         var markAverage = "?";
+        var markArr = [];
         $("#btn_submit").on("click", function (add) {
           add.preventDefault();
           noOrder++;
@@ -81,6 +82,14 @@
           markMath = $("#input_toan").val();
           markPhysic = $("#input_ly").val();
           markChemistry = $("#input_hoa").val();
+          markArr.push({
+            noOrder: noOrder,
+            name: name,
+            markMath: markMath,
+            markPhysic: markPhysic,
+            markChemistry: markChemistry,
+            markAverage: markAverage,
+          });
           var markRow =
             "<tr><td>" +
             noOrder +
@@ -103,10 +112,17 @@
           $("#mark_table").append(markRow);
           $(".inputInfo").val("");
         });
-
-        $("btn_avrg").on("click", function () {
-          $("td").each(function () {});
-        });
+        console.log(markArr);
+        // $("#btn_avrg").on("click", function (calAvrg) {
+        //   for (var i = 0; i <= markArr.length; i++) {
+        //     markArr[i].markAverage[i] =
+        //       (markArr[i].markMath[i] +
+        //         markArr[i].markPhysic[i] +
+        //         markArr[i].markChemistry[i]) /
+        //       3;
+        //     markArr[i].markAverage[i] = markAverage[i];
+        //   }
+        // });
       });
     </script>
   </body>
