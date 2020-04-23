@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Class Marksheet</h1>
+      <form>
+        <label for="inputName">Họ tên:</label>
+        <input
+          id="input_name"
+          class="inputInfo"
+          name="inputName"
+          type="text"
+        /><br />
+        <label for="inputToan">Điểm toán:</label>
+        <input
+          id="input_toan"
+          class="inputInfo"
+          name="inputToan"
+          type="number"
+        /><br />
+        <label for="inputLy">Điểm lý:</label>
+        <input
+          id="input_ly"
+          class="inputInfo"
+          name="inputLy"
+          type="number"
+        /><br />
+        <label for="inputHoa">Điểm hóa:</label>
+        <input
+          id="input_hoa"
+          class="inputInfo"
+          name="inputHoa"
+          type="number"
+        /><br />
+        <input type="submit" value="Submit" id="btn_submit" />
+      </form>
+    </div>
+    <hr />
+
+    <div class="container">
+      <table class="table table-bordered">
+        <tbody id="mark_table">
+          <tr>
+            <th id="stt">STT</th>
+            <th id="name">Họ tên</th>
+            <th id="mrkToan">Điểm toán</th>
+            <th id="mrkLy">Điểm lý</th>
+            <th id="mrkHoa">Điểm hóa</th>
+            <th id="mrkAvrg">Điểm TB</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr />
+    <div class="container">
+      <button id="btn_avrg">Tính điểm TB</button>
+      <button id="btn_good">Học sinh giỏi</button>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var noOrder = 0;
+        var name;
+        var markMath;
+        var markPhysic;
+        var markChemistry;
+        var markAverage = "?";
+        $("#btn_submit").on("click", function (add) {
+          add.preventDefault();
+          noOrder++;
+          name = $("#input_name").val();
+          markMath = $("#input_toan").val();
+          markPhysic = $("#input_ly").val();
+          markChemistry = $("#input_hoa").val();
+          var markRow =
+            "<tr><td>" +
+            noOrder +
+            "</td>" +
+            "<td>" +
+            name +
+            "</td>" +
+            "<td>" +
+            markMath +
+            "</td>" +
+            "<td>" +
+            markPhysic +
+            "</td>" +
+            "<td>" +
+            markChemistry +
+            "</td>" +
+            "<td>" +
+            markAverage +
+            "</td></tr>";
+          $("#mark_table").append(markRow);
+          $(".inputInfo").val("");
+        });
+
+        $("btn_avrg").on("click", function () {
+          $("td").each(function () {});
+        });
+      });
+    </script>
+  </body>
+</html>
